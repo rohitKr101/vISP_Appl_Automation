@@ -1,6 +1,9 @@
 #Environment variables
 .env
 
+#Folders
+Reports/
+
 #Python Files
 __pycache__/
 *.pyc
