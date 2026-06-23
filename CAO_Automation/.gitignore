@@ -1,0 +1,12 @@
+#Environment variables
+.env
+
+#Python Files
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+
+#Log Files
+*.log
+
