@@ -4,6 +4,9 @@
 #Folders
 Reports/
 
+# HTML Files
+*.html
+
 #Python Files
 __pycache__/
 *.pyc
