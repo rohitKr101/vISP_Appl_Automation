@@ -4,9 +4,9 @@ This repository consists of following vISP appl. scripts
 
 ```
 1. Bin Management 
-2. CAO
+2. CAO_HV
 3. Next Messenger  
 4. SMA GEPS
-5. Tibbco Mailway
+5. Tibco Mailway
 ```
 
