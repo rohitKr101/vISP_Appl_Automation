@@ -8,5 +8,6 @@ This repository consists of following vISP appl. scripts
 3. Next Messenger  
 4. SMA GEPS
 5. Tibco Mailway
+6. eWIC_Automation
 ```
 
