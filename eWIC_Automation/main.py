@@ -42,16 +42,41 @@ def main():
         print("Password Entered.")
         time.sleep(7)
 
+        # Verify file (WIC*MMDDYY.txt.gz ) is successfully transferred to the store Server Location
+        add_heading(
+            save_name,
+            "1. Verify file (WIC*MMDDYY.txt.gz ) is successfully transferred to the store Server Location",
+        )
+        my_client.sendText("cd /opt/sma/transfer_files/out")
         my_client.sendEnter()
         time.sleep(2)
+        my_client.sendText("ls -lrt")
+        my_client.sendEnter()
+        time.sleep(2)
+        my_client.saveScreen(save_name, dataType="txt")
 
+        # Verifying store job a_0969_sma_ewic_apl_sftp.K
+        add_heading(save_name, "2. Verifying store job a_0969_sma_ewic_apl_sftp.K")
+        my_client.sendText("cd /opt/sma/log")
+        my_client.sendEnter()
+        time.sleep(2)
+        my_client.sendText("ls -lrt")
+        time.sleep(2)
+        my_client.saveScreen(save_name, dataType="txt")
+        my_client.sendEnter()
+        time.sleep(2)
+        my_client.saveScreen(save_name, dataType="txt")
 
+        my_client.sendText("more sma_ewic_apl_sftp.log")
+        my_client.sendEnter()
+        time.sleep(2)
+        my_client.saveScreen(save_name, dataType="txt")
+
+        my_client.disconnect()
+        print("Mainframe Disconnected.")
 
     else:
         print("Mainframe Connection Failed.")
-
-    my_client.disconnect()
-    print("Mainframe Disconnected.")
 
 
 if __name__ == "__main__":
