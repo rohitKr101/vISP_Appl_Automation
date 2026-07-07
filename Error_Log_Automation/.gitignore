@@ -1,0 +1,18 @@
+#Environment variables
+.env
+
+#Folders
+Reports/
+
+# HTML Files
+*.html
+
+#Python Files
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+
+#Log Files
+*.log
+

@@ -9,6 +9,7 @@ This repository consists of following vISP appl. scripts
 4. SMA GEPS
 5. Price Verification (Hypervisor)
 6. Tibco Mailway
-7. eWIC_Automation
+7. eWIC
+8. Error Log
 ```
 
