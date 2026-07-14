@@ -23,7 +23,7 @@ Password = os.getenv("PASSWORD")
 
 def main():
     my_client = P3270Client(hostName=Hostname)
-    save_name = "Tibco_Report.html"
+    save_name = "DFM_Split_Report.html"
     if my_client.connect():
         print("Mainframe Connection Successful.")
         time.sleep(7)
@@ -42,10 +42,7 @@ def main():
         print("Password Entered.")
         time.sleep(7)
 
-        my_client.sendEnter()
-        time.sleep(2)
-
-        # 1. Validate the copied files in /opt/tibco/mail/in/DFM
+        # Validate the copied files in /opt/tibco/mail/in/DFM
         add_heading(save_name, "1. Validate the copied files in /opt/tibco/mail/in/DFM")
         my_client.sendText("sudo su - rsac")
         my_client.sendEnter()
@@ -60,7 +57,7 @@ def main():
 
         my_client.saveScreen(save_name, dataType="txt")
 
-        # 2. Time stamp of KLTSUPIT file before running the process
+        # Time stamp of KLTSUPIT file before running the process
         add_heading(
             save_name, "2. Time Stamp of KLTSUPIT file before running the process"
         )
@@ -73,7 +70,7 @@ def main():
 
         my_client.saveScreen(save_name, dataType="txt")
 
-        # 3. PENDFILE and TXJOURNL files before running the process
+        # PENDFILE and TXJOURNL files before running the process
         add_heading(
             save_name, "3. PENDFILE and TXJOURNL files before running the process"
         )
@@ -86,7 +83,7 @@ def main():
 
         my_client.saveScreen(save_name, dataType="txt")
 
-        # 4. Running the process
+        # Running the process
         add_heading(save_name, "4. Running the process")
         my_client.sendText("cd /store_apps/ssobj/bin")
         my_client.sendEnter()
@@ -97,11 +94,11 @@ def main():
 
         my_client.saveScreen(save_name, dataType="txt")
 
-        # 5. Time stamp of KLTSUPIT file after running the process
+        # PENDFILE and TXJOURNL files after running the process
         add_heading(
-            save_name, "5. Time Stamp of KLTSUPIT file after running the process"
+            save_name, "5. PENDFILE and TXJOURNL files after running the process"
         )
-        my_client.sendText("cd /store_apps/ssdata/appsdata")
+        my_client.sendText("cd /store_apps/ssdata/spldata")
         my_client.sendEnter()
         time.sleep(2)
         my_client.sendText("ls -ltr")
@@ -110,11 +107,12 @@ def main():
 
         my_client.saveScreen(save_name, dataType="txt")
 
-        # 6. PENDFILE and TXJOURNL files after running the process
+        # KLTSUPIT file in /store_apps/ssdata/appsdata after running the process
         add_heading(
-            save_name, "6. PENDFILE and TXJOURNL files after running the process"
+            save_name,
+            "6. KLTSUPIT file in /store_apps/ssdata/appsdata after running the process",
         )
-        my_client.sendText("cd /store_apps/ssdata/spldata")
+        my_client.sendText("cd /store_apps/ssdata/appsdata")
         my_client.sendEnter()
         time.sleep(2)
         my_client.sendText("ls -ltr")

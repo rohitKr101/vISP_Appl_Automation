@@ -104,10 +104,13 @@ def main():
         time.sleep(2)
         my_client.saveScreen(save_name, dataType="txt")
 
-        my_client.disconnect()
+        
 
     else:
         print("Mainframe connection Failed")
+    
+    my_client.disconnect()
+    print("Mainframe connection Disconnected")
 
 
 if __name__ == "__main__":
