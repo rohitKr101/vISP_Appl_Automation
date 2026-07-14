@@ -23,7 +23,7 @@ def main():
     my_client = P3270Client(hostName=Hostname)
     save_name = "CAO_Report.html"
     if my_client.connect():
-        print("Mainframe connection Successful")
+        print("Mainframe connection Successfull")
         time.sleep(5)
 
         my_client.sendEnter()
@@ -39,23 +39,75 @@ def main():
         print("Password Entered")
         time.sleep(7)
 
-        # my_client.sendText("export TERM=xterm")
-        # my_client.sendEnter()
-        # time.sleep(2)
+        my_client.sendText("export TERM=xterm")
+        my_client.sendEnter()
+        time.sleep(2)
 
-        add_heading(save_name, "1. Login to lab box 0969, do “sudo su_rsac” and go to directory “store_apps/ssdata/sysudata ")
+        # Login to lab box 0969, do 'sudo su_rsac' and go to directory 'store_apps/ssdata/sysudata '
+        add_heading(
+            save_name,
+            "1. Login to lab box 0969, do 'sudo su_rsac' and go to directory 'store_apps/ssdata/sysudata'",
+        )
         my_client.sendText("sudo su - rsac")
         my_client.sendEnter()
         time.sleep(2)
         my_client.saveScreen(save_name, dataType="txt")
-        
+
+        # Check contents of 'Logfile' folder
+        add_heading(save_name, "2. Check contents of 'Logfile' folder")
         my_client.sendText("cd /store_apps/ssdata/sysudata")
         my_client.sendEnter()
         time.sleep(2)
+        my_client.sendText("ls -ltr LOGFILE*")
+        my_client.sendEnter()
+        time.sleep(2)
+        my_client.saveScreen(save_name, dataType="txt")
 
-        
+        # Check contents of any logfile
+        add_heading(save_name, "3. Check contents of any logfile ")
+        # my_client.sendText("less LOGFILE3")
+        # my_client.sendEnter()
+        # time.sleep(2)
+        # my_client.saveScreen(save_name, dataType="txt")
 
+        # Run job 's0705v00.sh'
+        add_heading(save_name, "4. Run job 's0705v00.sh'")
+        my_client.sendText("/store_apps/ssobj/bin/s0705v00.sh")
+        my_client.sendEnter()
+        time.sleep(2)
+        my_client.saveScreen(save_name, dataType="txt")
 
+        # List out 'Logtran'
+        add_heading(save_name, "5. List out 'Logtran'")
+        my_client.sendText("ls -l LOGTRAN*")
+        my_client.sendEnter()
+        time.sleep(2)
+        my_client.saveScreen(save_name, dataType="txt")
+
+        # Check contents of Logtran by doing 'cat LOGTRAN'
+        add_heading(save_name, "6. Check contents of Logtran by doing 'cat LOGTRAN'")
+        my_client.sendText("cat LOGTRAN")
+        my_client.sendEnter()
+        time.sleep(2)
+        my_client.saveScreen(save_name, dataType="txt")
+
+        # Check that error log file is successfully placed in 'tibco/mail/out' folder
+        add_heading(
+            save_name,
+            "7. Check that error log file is successfully placed in 'tibco/mail/out' folder",
+        )
+        my_client.sendText("cd /opt/tibco/mail/out")
+        my_client.sendEnter()
+        time.sleep(2)
+        my_client.sendText("ls -lrt")
+        my_client.sendEnter()
+        time.sleep(2)
+        my_client.saveScreen(save_name, dataType="txt")
+
+        my_client.disconnect()
+
+    else:
+        print("Mainframe connection Failed")
 
 
 if __name__ == "__main__":
