@@ -12,7 +12,6 @@ def test_case_5(my_client):
 
     my_client.sendEnter()
     time.sleep(7)
-    my_client.printScreen()
 
     tc5_condition = (
         "Checking communication to POS (a9999cc1)" in my_client.getScreen()
@@ -24,6 +23,7 @@ def test_case_5(my_client):
 
         print("<---------------TC 05 - PASSED-------------->")
     else:
+        my_client.printScreen()
         print("<---------------TC 05 - FAILED-------------->")
 
     my_client.sendEnter()

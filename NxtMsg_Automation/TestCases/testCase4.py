@@ -21,6 +21,7 @@ def test_case_4(my_client):
 
         print("<---------------TC 04 - PASSED-------------->")
     else:
+        my_client.printScreen()
         print("<---------------TC 04 - FAILED-------------->")
 
     my_client.sendEnter()
