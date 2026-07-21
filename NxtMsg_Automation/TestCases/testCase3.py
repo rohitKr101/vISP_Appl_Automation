@@ -7,14 +7,12 @@ def test_case_3(my_client):
     save_path = "Reports/TC3_Report.html"
     add_heading(save_path, "NxtMssg TC 3 : Check Start Daemon Status")
 
-    time.sleep(5)
-    my_client.moveTo(1, 1)
-    my_client.sendEnter()
-
     my_client.saveScreen(save_path, dataType="txt")
-    
+
     my_client.sendEnter()
     time.sleep(5)
+    my_client.sendEnter()
+    time.sleep(7)
 
     tc3_condition = "still running." in my_client.getScreen()
     print("Start Daemon Status : ", tc3_condition)
@@ -26,5 +24,5 @@ def test_case_3(my_client):
     else:
         my_client.printScreen()
         print("<---------------TC 03 - FAILED-------------->")
-    my_client.sendEnter()
+
     time.sleep(7)

@@ -40,3 +40,5 @@ def test_case_3(my_client, username, password):
     time.sleep(2)
     add_heading(save_path, "SMA_GEPS_log_files")
     my_client.saveScreen(save_path, dataType="txt")
+
+    print("<---------------TC 03 - Executed-------------->")
