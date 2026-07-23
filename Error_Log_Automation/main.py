@@ -21,7 +21,7 @@ def add_heading(file_name, heading):
 
 def main():
     my_client = P3270Client(hostName=Hostname)
-    save_name = "CAO_Report.html"
+    save_name = "Error_Log_Report.html"
     if my_client.connect():
         print("Mainframe connection Successfull")
         time.sleep(5)

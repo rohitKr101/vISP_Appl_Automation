@@ -19,4 +19,4 @@ def login(my_client, username, password):
         print("Password Entered")
         time.sleep(7)
 
-        my_client.printScreen()
+        # my_client.printScreen()

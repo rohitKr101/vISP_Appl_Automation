@@ -16,7 +16,7 @@ def main():
     my_client = P3270Client(hostName=Hostname)
 
     login(my_client, Username, Password)
-    # test_case_1(my_client, Username, Password)
+    test_case_1(my_client, Username, Password)
 
 if __name__ == "__main__":
     main()
