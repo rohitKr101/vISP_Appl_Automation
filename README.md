@@ -12,5 +12,6 @@ This repository consists of following vISP appl. scripts
 7. eWIC
 8. Error Log
 9. DFM_Split
+10. SMA_Batch_Manager
 ```
 
