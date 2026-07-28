@@ -2,6 +2,7 @@ import time
 
 from .utils import add_heading
 
+
 class Login:
 
     def __init__(self, my_client, Username, Password):
@@ -23,4 +24,6 @@ class Login:
         print("Password Entered")
         time.sleep(5)
 
-        
+        self.my_client.sendText("export TERM=xterm")
+        self.my_client.sendEnter()
+        time.sleep(2)
