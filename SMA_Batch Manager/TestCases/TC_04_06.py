@@ -3,17 +3,17 @@ from .utils import add_heading
 from .Login import Login
 
 
-def test_case_3(client, username, password):
-    # SMABatchManager_Batch Creation_Create Store Batch line using UPC number with Tag
+def test_case_4_6(client, username, password):
+    # SMABatchManager_Batch Creation_Create Store Batch line using UPC number and Sign
 
     if client.connect():
         print("Mainframe Connection Successful.")
         time.sleep(7)
 
-        file_path = "Reports/TC3_Report.html"
+        file_path = "Reports/TC_04_06_Report.html"
         add_heading(
             file_path,
-            "TC_03_SMA_BatchManager_Batch Creation_Create Store Batch line using UPC number with Tag",
+            "TC_04_06_SMA_BatchManager_Batch Creation_Create Store Batch line using UPC number and Sign",
         )
         LOGIN = Login(client, username, password)
         LOGIN.login()
@@ -39,7 +39,7 @@ def test_case_3(client, username, password):
         client.sendEnter()
         time.sleep(2)
 
-        client.sendText("batch 02")
+        client.sendText("batch 03")
         time.sleep(2)
 
         client.saveScreen(file_path, dataType="txt")
@@ -58,7 +58,7 @@ def test_case_3(client, username, password):
         client.sendTab()
         time.sleep(2)
 
-        client.sendKeys("t")
+        client.sendKeys("s")
         time.sleep(2)
 
         client.saveScreen(file_path, dataType="txt")
@@ -67,7 +67,7 @@ def test_case_3(client, username, password):
         time.sleep(2)
 
         # No. of tabs to choose the tag
-        for _ in range(3):
+        for _ in range(2):
             client.sendTab()
             time.sleep(2)
 
@@ -83,7 +83,7 @@ def test_case_3(client, username, password):
 
         client.saveScreen(file_path, dataType="txt")
 
-        print("<-------------------Test Case 3 executed------------------->")
+        print("<-------------------Test Case 4 and 6 executed------------------->")
 
     else:
         print("Mainframe Connection Failed.")

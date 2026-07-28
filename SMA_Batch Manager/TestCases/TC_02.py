@@ -10,7 +10,7 @@ def test_case_2(client, username, password):
         print("Mainframe Connection Successful.")
         time.sleep(7)
 
-        file_path = "Reports/TC2_Report.html"
+        file_path = "Reports/TC_02_Report.html"
         add_heading(
             file_path, "TC_02_SMA_BatchManager_Batch Creation_Create Batch Header"
         )
