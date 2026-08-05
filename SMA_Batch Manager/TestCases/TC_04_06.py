@@ -1,4 +1,5 @@
 import time
+
 from .utils import add_heading
 from .Login import Login
 
@@ -66,7 +67,7 @@ def test_case_4_6(client, username, password):
         client.sendPF(5)
         time.sleep(2)
 
-        # No. of tabs to choose the tag
+        # No. of tabs to choose the sign
         for _ in range(2):
             client.sendTab()
             time.sleep(2)

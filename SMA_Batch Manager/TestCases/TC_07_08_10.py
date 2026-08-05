@@ -1,12 +1,11 @@
 import time
 
-from django.test import client
 from .utils import add_heading
 from .Login import Login
 
 
 def test_case_7_8_10(client, username, password):
-    # SMABatchManager_Batch Creation_Create Store Batch line using  Item Number, With  Tag _End to End flow
+    # SMABatchManager_Batch Creation_Create Store Batch line using Item Number, With  Tag _End to End flow
 
     if client.connect():
         print("Mainframe Connection Successful.")
@@ -15,7 +14,7 @@ def test_case_7_8_10(client, username, password):
         file_path = "Reports/TC_07_08_10_Report.html"
         add_heading(
             file_path,
-            "TC_07_08_10_SMA_BatchManager_Batch Creation_Create Store Batch line using Item Number and Tag",
+            "TC_07_08_10_SMABatchManager_Batch Creation_Create Store Batch line using  Item Number, With  Tag _End to End flow",
         )
         LOGIN = Login(client, username, password)
         LOGIN.login()
@@ -93,7 +92,7 @@ def test_case_7_8_10(client, username, password):
 
         client.saveScreen(file_path, dataType="txt")
 
-        print("<-------------------Test Case 7 and 8 executed------------------->")
+        print("<-------------------Test Case 7, 8, and 10 executed------------------->")
 
     else:
         print("Mainframe Connection Failed.")
