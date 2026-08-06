@@ -1,7 +1,5 @@
 import time
 
-from .utils import add_heading
-
 
 class Login:
 

@@ -1,20 +1,21 @@
 from datetime import datetime
+from http import client
 import time
 
 from .utils import add_heading
 from .Login import Login
 
 
-def test_case_13(client, username, password):
-    # SMABatchManager_View or Edit Item
+def test_case_14(client, username, password):
+    # SMABatchManager_View or Edit Item_Edit_UOM
     if client.connect():
         print("Mainframe Connection Successful.")
         time.sleep(7)
 
-        file_path = "Reports/TC_13_Report.html"
+        file_path = "Reports/TC_14_Report.html"
         add_heading(
             file_path,
-            "TC_13_SMABatchManager_View or Edit Item",
+            "TC_14_SMABatchManager_View or Edit Item_Edit_UOM",
         )
         LOGIN = Login(client, username, password)
         LOGIN.login()
@@ -39,11 +40,11 @@ def test_case_13(client, username, password):
         client.saveScreen(file_path, dataType="txt")
         client.sendEnter()
         time.sleep(2)
-        client.sendText("item description edit")
+        client.sendText("Edit UOM")
         time.sleep(2)
         client.saveScreen(file_path, dataType="txt")
 
-        # Add items from different departments
+        # Add UPC
         client.sendPF(12)
         time.sleep(2)
         client.sendText("4011")
@@ -75,51 +76,24 @@ def test_case_13(client, username, password):
         time.sleep(2)
         client.saveScreen(file_path, dataType="txt")
 
-        # Edit Item Description
+        # View or Edit Item
         client.sendPF(7)
-        time.sleep(2)
-        client.sendText("Updated Item Description")
-        time.sleep(2)
-        client.saveScreen(file_path, dataType="txt")
-        client.sendPF(12)
         time.sleep(2)
         client.saveScreen(file_path, dataType="txt")
 
-        # Add Pricing Information
-        client.sendPF(7)
+        client.sendPF(4)  # Edit UOM
         time.sleep(2)
-        for _ in range(7):
-            client.sendTab()
-            time.sleep(1)
+        client.saveScreen(file_path, dataType="txt")
 
-        client.sendText("2")  # EDLP Unit
-        client.sendTab()
-        time.sleep(1)
-
-        client.sendText("1")  # EDLP Price
-        client.sendTab()
-        time.sleep(1)
-
-        client.sendText("1")  # Promo Unit
-        client.sendTab()
-        time.sleep(1)
-
-        client.sendText("0")  # Promo Price
-        client.sendTab()
-        client.sendTab()
-        time.sleep(1)
-
-        client.sendText("3")  # Promo Type
-        client.sendTab()
-        time.sleep(5)
-
+        client.sendPF(2)  # List UOM
+        time.sleep(2)
         client.saveScreen(file_path, dataType="txt")
 
         client.sendPF(12)
         time.sleep(2)
         client.saveScreen(file_path, dataType="txt")
 
-        print("<-------------------Test Case 13 executed------------------->")
+        print("<-------------------Test Case 14 executed------------------->")
 
     else:
         print("Mainframe Connection Failed.")
