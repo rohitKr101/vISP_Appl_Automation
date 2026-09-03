@@ -1,14 +1,17 @@
 import time
-from Login import login
 from utils import add_heading
 
 
-def testCase1(my_client, Username, Password):
-    save_path = "PV_Report.html"
+def testCase_1(my_client, save_path):
 
-    login(my_client, Username, Password)
-
-    add_heading(save_path, "Login")
+    add_heading(
+        save_path,
+        "TC01- SMAPriceVerification_Login to PV application_Direct Audit Mode_through pvhh.pl",
+    )
+    add_heading(save_path, "Login to Lab 6978 and do sudo to su_sma_user")
+    my_client.sendText("sudo /bin/su - sma_user")
+    my_client.sendEnter()
+    time.sleep(5)
     my_client.saveScreen(save_path, dataType="txt")
 
     my_client.sendText("cd /opt/sma/pv/HH")
@@ -16,26 +19,21 @@ def testCase1(my_client, Username, Password):
     time.sleep(2)
     my_client.sendText("pvhh.pl")
     time.sleep(2)
-    add_heading(save_path, "HH Directory")
+    add_heading(save_path, "Go to /opt/sma/pv/HH and run pvhh.pl")
     my_client.saveScreen(save_path, dataType="txt")
 
     my_client.sendEnter()
     time.sleep(2)
-    add_heading(save_path, "HH Script")
+    add_heading(save_path, "PV Direct Audit mode opens up. Press Enter.")
     my_client.saveScreen(save_path, dataType="txt")
 
     my_client.sendEnter()
     time.sleep(2)
-    add_heading(save_path, "HH Output")
+    add_heading(save_path, "PV1 screen opens")
     my_client.saveScreen(save_path, dataType="txt")
 
     my_client.sendText("4011")
     my_client.sendEnter()
     time.sleep(2)
-    add_heading(save_path, "4011 Output")
-    my_client.saveScreen(save_path, dataType="txt")
-
-    my_client.sendKeys("b")
-    time.sleep(2)
-    add_heading(save_path, "Sign-off")
+    add_heading(save_path, "Enter UPC")
     my_client.saveScreen(save_path, dataType="txt")
