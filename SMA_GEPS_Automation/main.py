@@ -24,11 +24,11 @@ def main():
         print("Mainframe Connection Successful.")
         time.sleep(7)
 
-        # Uncomment the test case you want to run
-        test_case_1(my_client, Username, Password)
+        ''' Uncomment the test case you want to run '''
+        # test_case_1(my_client, Username, Password)
         # test_case_2(my_client, Username, Password)
         # test_case_3(my_client, Username, Password)
-        # test_case_4(my_client, Username, Password)
+        test_case_4(my_client, Username, Password)
 
     else:
         print("Mainframe Connection Failed.")

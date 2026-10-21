@@ -5,7 +5,7 @@ from TestCases.utils import add_heading
 def test_case_5(my_client):
     """TC 5 : Check Daemon Status"""
     save_path = "Reports/TC5_Report.html"
-    add_heading(save_path, "NxtMssg TC 5 : Check Daemon Status")
+    add_heading(save_path, "LNX_Next Messenger_Check the status of Daemon_TC05")
     my_client.sendKeys("c")
 
     my_client.saveScreen(save_path, dataType="txt")
@@ -14,7 +14,7 @@ def test_case_5(my_client):
     time.sleep(7)
 
     tc5_condition = (
-        "Checking communication to POS (a9999cc1)" in my_client.getScreen()
+        "Checking communication to POS (a6946cc1)" in my_client.getScreen()
         and "PING FAILED!" not in my_client.getScreen()
     )
     print("Daemon Status : ", tc5_condition)

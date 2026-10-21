@@ -23,7 +23,7 @@ Password = os.getenv("PASSWORD")
 
 def main():
     my_client = P3270Client(hostName=Hostname)
-    save_name = "DFM_Split_Report.html"
+    save_name = "DFM_Split_Report_1.html"
     if my_client.connect():
         print("Mainframe Connection Successful.")
         time.sleep(7)
@@ -43,7 +43,7 @@ def main():
         time.sleep(7)
 
         # Validate the copied files in /opt/tibco/mail/in/DFM
-        add_heading(save_name, "1. Validate the copied files in /opt/tibco/mail/in/DFM")
+        add_heading(save_name, "1. Validating the copied file in /opt/tibco/mail/in/DFM after sesudo su_rsaf")
         my_client.sendText("sudo su - rsac")
         my_client.sendEnter()
         time.sleep(2)

@@ -5,7 +5,7 @@ from TestCases.utils import add_heading
 def test_case_2(my_client):
     """ TC 2 : Validate All Options """
     save_path = "Reports/TC2_Report.html"
-    add_heading(save_path, "NxtMssg TC 2 : Validate All Options")
+    add_heading(save_path, "LNX_Next Messenger_Verify All options of Next Messenger in LINUX box_TC02")
 
     options = [
         "Start daemon",

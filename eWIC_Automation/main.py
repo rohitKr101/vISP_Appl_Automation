@@ -23,7 +23,7 @@ Password = os.getenv("PASSWORD")
 
 def main():
     my_client = P3270Client(hostName=Hostname)
-    save_name = "eWIC_Report.html"
+    save_name = "eWIC_Result_6946.html"
     if my_client.connect():
         print("Mainframe Connection Successful.")
         time.sleep(7)
@@ -55,8 +55,11 @@ def main():
         time.sleep(2)
         my_client.saveScreen(save_name, dataType="txt")
 
-        # Verifying store job a_0969_sma_ewic_apl_sftp.K
-        add_heading(save_name, "2. Verifying store job a_0969_sma_ewic_apl_sftp.K")
+        # Verifying store job a_0963_sma_ewic_apl_sftp.K
+        add_heading(save_name, "2. Verifying store job a_0963_sma_ewic_apl_sftp.K")
+        my_client.sendEnter()
+        my_client.sendEnter()
+
         my_client.sendText("cd /opt/sma/log")
         my_client.sendEnter()
         time.sleep(2)
@@ -66,6 +69,9 @@ def main():
         my_client.sendEnter()
         time.sleep(2)
         my_client.saveScreen(save_name, dataType="txt")
+
+        my_client.sendEnter()
+        my_client.sendEnter()
 
         my_client.sendText("more sma_ewic_apl_sftp.log")
         my_client.sendEnter()

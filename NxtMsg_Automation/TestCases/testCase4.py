@@ -5,7 +5,7 @@ from TestCases.utils import add_heading
 def test_case_4(my_client):
     """TC 4 : Check Stop Daemon Status"""
     save_path = "Reports/TC4_Report.html"
-    add_heading(save_path, "NxtMssg TC 4 : Check Stop Daemon Status")
+    add_heading(save_path, "LNX_Next Messenger_Stop Daemon in LINUX box_TC04")
     my_client.sendKeys("s")
 
     my_client.saveScreen(save_path, dataType="txt")

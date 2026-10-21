@@ -23,7 +23,7 @@ Password = os.getenv("PASSWORD")
 
 def main():
     my_client = P3270Client(hostName=Hostname)
-    save_name = "Tibco_Report.html"
+    save_name = "Tibco_Report_6946.html"
     if my_client.connect():
         print("Mainframe Connection Successful.")
         time.sleep(7)
@@ -64,6 +64,9 @@ def main():
         add_heading(
             save_name, "2. Time Stamp of KLTSUPIT file before running the process"
         )
+        my_client.sendEnter()
+        my_client.sendEnter()
+
         my_client.sendText("cd /store_apps/ssdata/appsdata")
         my_client.sendEnter()
         time.sleep(2)
@@ -77,6 +80,9 @@ def main():
         add_heading(
             save_name, "3. PENDFILE and TXJOURNL files before running the process"
         )
+        my_client.sendEnter()
+        my_client.sendEnter()
+
         my_client.sendText("cd /store_apps/ssdata/spldata")
         my_client.sendEnter()
         time.sleep(2)
@@ -88,6 +94,9 @@ def main():
 
         # 4. Running the process
         add_heading(save_name, "4. Running the process")
+        my_client.sendEnter()
+        my_client.sendEnter()
+
         my_client.sendText("cd /store_apps/ssobj/bin")
         my_client.sendEnter()
         time.sleep(2)
@@ -101,6 +110,9 @@ def main():
         add_heading(
             save_name, "5. Time Stamp of KLTSUPIT file after running the process"
         )
+        my_client.sendEnter()
+        my_client.sendEnter()
+
         my_client.sendText("cd /store_apps/ssdata/appsdata")
         my_client.sendEnter()
         time.sleep(2)
@@ -114,6 +126,9 @@ def main():
         add_heading(
             save_name, "6. PENDFILE and TXJOURNL files after running the process"
         )
+        my_client.sendEnter()
+        my_client.sendEnter()
+
         my_client.sendText("cd /store_apps/ssdata/spldata")
         my_client.sendEnter()
         time.sleep(2)
