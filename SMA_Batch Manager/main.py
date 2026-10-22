@@ -23,6 +23,10 @@ from TestCases.TC_20 import test_case_20
 from TestCases.TC_21 import test_case_21
 from TestCases.TC_22 import test_case_22
 from TestCases.TC_23 import test_case_23
+from TestCases.TC_24 import test_case_24
+from TestCases.TC_25 import test_case_25
+from TestCases.TC_26 import test_case_26
+from TestCases.TC_27 import test_case_27
 
 load_dotenv(
     override=True
@@ -52,7 +56,11 @@ def main():
     # test_case_20(my_client, Username, Password)
     # test_case_21(my_client, Username, Password)
     # test_case_22(my_client, Username, Password)
-    test_case_23(my_client, Username, Password)
+    # test_case_23(my_client, Username, Password)
+    # test_case_24(my_client, Username, Password)
+    # test_case_25(my_client, Username, Password)
+    # test_case_26(my_client, Username, Password)
+    test_case_27(my_client, Username, Password)
 
 
 if __name__ == "__main__":
